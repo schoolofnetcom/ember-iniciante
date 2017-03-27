@@ -1,0 +1,31 @@
+<h1>Contas</h1>
+<p>Gerenciamento de contas bancárias</p>
+
+{{ outlet }}
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Título</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model.data as |account|}}
+  <tr>
+    <td>{{ account.id }}</td>
+    <td>{{ account.title }} <small>{{ account.bank.title }} {{ account.agency }} - {{ account.account_number }}</small></td>
+    <td>
+      {{#link-to "accounts.view" account.id class="btn"}}
+        ver
+      {{/link-to}}
+    </td>
+  </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+{{#link-to "accounts.add" class="btn"}}
+  novo
+{{/link-to}}

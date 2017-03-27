@@ -1,0 +1,39 @@
+<div class="modal-wrapper">
+  <div class="modal">
+    <h1>Visualização de contas</h1>
+    <table>
+      <tbody>
+      <tr>
+        <th>Título</th>
+        <td>{{ model.title }}</td>
+      </tr>
+      <tr>
+        <th>Banco</th>
+        <td>{{ model.bank.title }} - {{ model.bank.code }}</td>
+      </tr>
+      <tr>
+        <th>Agência</th>
+        <td>{{ model.agency }}</td>
+      </tr>
+      <tr>
+        <th>Número da conta</th>
+        <td>{{ model.account_number }}</td>
+      </tr>
+      <tr>
+        <th>Valor atual</th>
+        <td>{{ model.balance }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    {{#link-to "accounts" class="btn"}}
+      voltar
+    {{/link-to}}
+    {{#link-to "accounts.edit" model.id class="btn"}}
+      editar
+    {{/link-to}}
+    {{#link-to "accounts.remover" model.id class="btn"}}
+      remover
+    {{/link-to}}
+  </div>
+</div>
